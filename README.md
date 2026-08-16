@@ -1,64 +1,99 @@
-import requests
-import pandas as pd
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Agronegocio no Parana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #222;
+        }
+        header {
+            background-color: #1b5e20;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #2e7d32;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #ffffff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:focus, nav a:hover {
+            text-decoration: underline;
+            outline: 2px solid #ffffff;
+        }
+        main {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+        }
+        section {
+            margin-bottom: 30px;
+        }
+        h1, h2 {
+            color: #1b5e20;
+        }
+        footer {
+            background-color: #1b5e20;
+            color: #ffffff;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
 
-def buscar_dados_agro_parana():
-    """
-    Consulta a API do SIDRA / IBGE para obter a Producao Agricola Municipal (PAM)
-    no Parana (UF 41).
-    """
-    # Tabela 1612: Area plantada, colhida e valor da producao agricola
-    # UF 41 = Parana | Variavel 214 = Valor da Producao (R$ mil)
-    url = "https://servicodados.ibge.gov.br/api/v3/agregados/1612/periodos/2023/variaveis/214?localidades=N3[41]"
+    <header role="banner">
+        <h1>O Agronegocio no Parana</h1>
+        <p>A forca da producao agricola e pecuaria do estado</p>
+    </header>
 
-    headers = {
-        "User-Agent": "AcessibilidadeAgroApp/1.0 (contato@exemplo.com)"
-    }
+    <nav role="navigation" aria-label="Menu principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#produtos">Principais Produtos</a>
+        <a href="#direitos">Direitos Autorais</a>
+    </nav>
 
-    try:
-        response = requests.get(url, headers=headers, timeout=10)
-        response.raise_for_status()
-        dados = response.json()
+    <main role="main">
+        <section id="sobre" aria-labelledby="titulo-sobre">
+            <h2 id="titulo-sobre">Sobre o Setor</h2>
+            <p>O estado do Parana e um dos maiores produtores de alimentos do Brasil. Com solo fertil e tecnologia no campo, a agricultura e a pecuaria garantem o desenvolvimento economico da regiao e o abastecimento de varios paises.</p>
+        </section>
 
-        # Validacao da resposta da API
-        if not dados or not isinstance(dados, list):
-            print("Resposta da API veio vazia ou em formato inesperado.")
-            return None
+        <section id="produtos" aria-labelledby="titulo-produtos">
+            <h2 id="titulo-produtos">Principais Culturas e Producoes</h2>
+            <ul>
+                <li><strong>Soja:</strong> Um dos itens mais exportados do estado.</li>
+                <li><strong>Milho:</strong> Essencial para a alimentacao animal e consumo.</li>
+                <li><strong>Trigo:</strong> O Parana e lider nacional na producao deste grao.</li>
+                <li><strong>Proteina Animal:</strong> Destaque na avicultura e suinocultura.</li>
+            </ul>
+        </section>
 
-        resultados_api = dados[0].get("resultados", [])
-        if not resultados_api:
-            print("Nenhum resultado encontrado na consulta.")
-            return None
+        <section id="direitos" aria-labelledby="titulo-direitos">
+            <h2 id="titulo-direitos">Direitos Autorais e Licenca</h2>
+            <p>Todo o conteudo textual desta pagina foi produzido para fins informativos. A reproducao e permitida desde que citada a fonte original conforme a lei de direitos autorais vigente.</p>
+        </section>
+    </main>
 
-        series = resultados_api[0].get("series", [])
+    <footer role="contentinfo">
+        <p>&copy; 2026 Agronegocio no Parana. Todos os direitos reservados.</p>
+    </footer>
 
-        # Processamento e estruturacao dos dados
-        lista_resultados = []
-        for item in series:
-            nome_localidade = item.get("localidade", {}).get("nome", "Desconhecido")
-            historico_serie = item.get("serie", {})
-
-            for ano, valor in historico_serie.items():
-                lista_resultados.append({
-                    "Estado": nome_localidade,
-                    "Ano": ano,
-                    "Valor_Producao_Mil_Reais": valor
-                })
-
-        # Criacao do DataFrame
-        df = pd.DataFrame(lista_resultados)
-        return df
-
-    except requests.exceptions.RequestException as err:
-        print(f"Erro na requisicao HTTP: {err}")
-        return None
-    except (KeyError, IndexError, TypeError) as err:
-        print(f"Erro ao processar a estrutura dos dados JSON: {err}")
-        return None
-
-if __name__ == "__main__":
-    dados_pr = buscar_dados_agro_parana()
-    
-    if dados_pr is not None and not dados_pr.empty:
-        print(dados_pr.to_string(index=False))
-    else:
-        print("Nao foi possivel gerar a tabela de dados.")
+</body>
+</html>
