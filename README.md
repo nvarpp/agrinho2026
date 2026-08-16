@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O Agronegocio no Parana</title>
+    <title>O Agronegócio no Paraná</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -59,8 +59,8 @@
 <body>
 
     <header role="banner">
-        <h1>O Agronegocio no Parana</h1>
-        <p>A forca da producao agricola e pecuaria do estado</p>
+        <h1>O Agronegócio no Paraná</h1>
+        <p>A força da produção agrícola e pecuária do estado</p>
     </header>
 
     <nav role="navigation" aria-label="Menu principal">
@@ -72,27 +72,27 @@
     <main role="main">
         <section id="sobre" aria-labelledby="titulo-sobre">
             <h2 id="titulo-sobre">Sobre o Setor</h2>
-            <p>O estado do Parana e um dos maiores produtores de alimentos do Brasil. Com solo fertil e tecnologia no campo, a agricultura e a pecuaria garantem o desenvolvimento economico da regiao e o abastecimento de varios paises.</p>
+            <p>O estado do Paraná é um dos maiores produtores de alimentos do Brasil. Com solo fértil e tecnologia no campo, a agricultura e a pecuária garantem o desenvolvimento econômico da região e o abastecimento de vários países.</p>
         </section>
 
         <section id="produtos" aria-labelledby="titulo-produtos">
-            <h2 id="titulo-produtos">Principais Culturas e Producoes</h2>
+            <h2 id="titulo-produtos">Principais Culturas e Produções</h2>
             <ul>
                 <li><strong>Soja:</strong> Um dos itens mais exportados do estado.</li>
-                <li><strong>Milho:</strong> Essencial para a alimentacao animal e consumo.</li>
-                <li><strong>Trigo:</strong> O Parana e lider nacional na producao deste grao.</li>
-                <li><strong>Proteina Animal:</strong> Destaque na avicultura e suinocultura.</li>
+                <li><strong>Milho:</strong> Essencial para a alimentação animal e consumo.</li>
+                <li><strong>Trigo:</strong> O Paraná é líder nacional na produção deste grão.</li>
+                <li><strong>Proteína Animal:</strong> Destaque na avicultura e suinocultura.</li>
             </ul>
         </section>
 
         <section id="direitos" aria-labelledby="titulo-direitos">
-            <h2 id="titulo-direitos">Direitos Autorais e Licenca</h2>
-            <p>Todo o conteudo textual desta pagina foi produzido para fins informativos. A reproducao e permitida desde que citada a fonte original conforme a lei de direitos autorais vigente.</p>
+            <h2 id="titulo-direitos">Direitos Autorais e Licença</h2>
+            <p>Todo o conteúdo textual desta página foi produzido para fins informativos. A reprodução é permitida desde que citada a fonte original conforme a lei de direitos autorais vigente.</p>
         </section>
     </main>
 
     <footer role="contentinfo">
-        <p>&copy; 2026 Agronegocio no Parana. Todos os direitos reservados.</p>
+        <p>&copy; 2026 Agronegócio no Paraná. Todos os direitos reservados.</p>
     </footer>
 
 </body>
